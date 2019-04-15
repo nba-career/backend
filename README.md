@@ -150,3 +150,32 @@ _http method_: **[GET]**
     }
 ]
 ```
+
+**/--------------------------------------------/ ALL TEAMS /-----------------------------------------/**
+
+### **Get all Teams**
+
+_url_: `/api/teams`
+
+_http method_: **[GET]**
+
+#### Response
+
+##### 200 (ok)
+
+###### Example response
+
+```
+[
+    {
+        "team": "ATL"
+    },
+    {
+        "team": "BOS"
+    },
+    {
+        "team": "CHA"
+    },
+    ...
+]
+```
