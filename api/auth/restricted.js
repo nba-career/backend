@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const secrets = require("../api/secrets.js");
+const secrets = require("../secrets.js");
 
 module.exports = (req, res, next) => {
   const token = req.headers.authorization;
@@ -16,6 +16,6 @@ module.exports = (req, res, next) => {
       }
     });
   } else {
-    res.status(40).json({ message: "No token provided" });
+    res.status(403).json({ message: "No token provided" });
   }
 };

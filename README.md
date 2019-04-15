@@ -243,3 +243,142 @@ _http method_: **[GET]**
     ...
 ]
 ```
+
+
+**/--------------------------------------------/ REGISTER /---------------------------------------/**
+
+###
+
+**Register a User**
+_url_: `/api/auth/register`
+
+_http method_: **[POST]**
+
+#### Body
+
+| name         | type   | required | description    |
+| ------------ | ------ | -------- | -------------- |
+| `username`   | String | Yes      | Must be unique |
+| `password`   | String | Yes      |                |
+
+#### Example
+
+```
+  {
+    "username": "demo",
+    "password": "demo"
+  }
+```
+
+#### Response
+
+##### 201 (created)
+
+###### Example Response
+
+```
+    {
+        "id": 2,
+        "username": "demo",
+        "password": "$2a$14$b71jiKqNgdSuqnMVGUfDXeNqGcV7KCyPOde6mgV5wxrc0Acgd9DPa"
+    }
+```
+
+##### 400 (Bad Request)
+
+```
+    {
+        "message": "Please under a username and password"
+    }
+```
+
+**/--------------------------------------------/ LOGIN /---------------------------------------/**
+
+### **Login a user**
+
+_url_: `/api/auth/login`
+
+_http method_: **[POST]**
+
+#### Body
+
+| name       | type   | required | description             |
+| ---------- | ------ | -------- | ----------------------- |
+| `username` | String | Yes      | must be registered user |
+| `password` | String | Yes      |                         |
+
+#### Example
+
+```
+  {
+    "username": "demo",
+    "password": "demo",
+  }
+```
+
+#### Response
+
+##### 200 (ok)
+
+> no issues logging in
+
+###### Example response
+
+```
+    {
+        "message": "Welcome demo!",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZyb2RvIiwiaWF0IjoxNTU1MzY3NjMwLCJleHAiOjE1NTU0NTQwMzB9.mDqs_xvjYKNBdhXRAEBMAykSaiypCRrYeR_GzkWkGdw"
+    }
+```
+
+##### 401 (Unauthorized)
+
+```
+    {
+        "message": "Invalid Credentials"
+    }
+```
+
+##### 400 (Bad Request)
+
+```
+{
+  errorMessage: "No valid user credentials provided, please register..."
+}
+```
+
+**/--------------------------------------------/ ALL USERS /-----------------------------------------/**
+
+### **Get all Users**
+
+_url_: `/api/users`
+
+_http method_: **[GET]**
+
+#### Headers
+
+| name            | type   | required | description              |
+| --------------- | ------ | -------- | ------------------------ |
+| `Content-Type`  | String | Yes      | Must be application/json |
+| `authorization` | String | Yes      | token to Authorize user  |
+
+#### Response
+
+##### 200 (ok)
+
+###### Example response
+
+```
+    [
+        {
+            "id": 1,
+            "username": "demo",
+            "password": "demo"
+        },
+        {
+            "id": 2,
+            "username": "demo1",
+            "password": "demo1"
+        }
+    ]
+```

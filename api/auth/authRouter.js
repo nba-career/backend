@@ -7,17 +7,22 @@ const Users = require('../users/usersModel.js');
 
 // POST /api/auth/register
 router.post('/register', (req, res) => {
+  if(req.body.username && req.body.password) {  
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 14); // 2 ^ n
   user.password = hash;
 
-  Users.add(user)
-    .then(saved => {
-      res.status(201).json(saved);
-    })
-    .catch(error => {
-      res.status(500).json(error);
-    });
+  
+    Users.add(user)
+        .then(saved => {
+        res.status(201).json(saved);
+        })
+        .catch(error => {
+        res.status(500).json(error);
+        });
+  } else {
+    res.status(401).json({ message: 'Please under a username and password' });
+  }
 });
 
 // POST /api/auth/login
