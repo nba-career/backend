@@ -151,6 +151,70 @@ _http method_: **[GET]**
 ]
 ```
 
+**/--------------------------------------------/ ALL PLAYERS NAMES /-----------------------------------/**
+
+### **Get all Player's Names**
+
+_url_: `/api/players/names`
+
+_http method_: **[GET]**
+
+#### Response
+
+##### 200 (ok)
+
+###### Example response
+
+```
+[
+    {
+        "player": "Robert Parish"
+    },
+    {
+        "player": "Sonny Parker"
+    },
+    {
+        "player": "Marshall Rogers"
+    },
+    {
+        "player": "Jeff Fosnes"
+    },
+    {
+        "player": "Carl Bird"
+    },
+    {
+        "player": "Duane Barnett"
+    },
+    {
+        "player": "Gene Cunningham"
+    },
+    {
+        "player": "Jesse Campbell"
+    },
+    {
+        "player": "Stan Boskovich"
+    },
+    {
+        "player": "Howard Smith"
+    },
+    {
+        "player": "Ken Smith"
+    },
+    {
+        "player": "Rickey Green"
+    },
+    {
+        "player": "Wesley Cox"
+    },
+    {
+        "player": "Ricky Love"
+    },
+    {
+        "player": "Marlon Redmond"
+    },
+    ...
+```
+
 **/--------------------------------------------/ ALL TEAMS /-----------------------------------------/**
 
 ### **Get all Teams**
