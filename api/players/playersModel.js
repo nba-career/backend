@@ -18,5 +18,5 @@ function getById(id) {
 
 function getAllNames() {
   return db("players")
-    .select("player");
+    .select("id", "player");
 }

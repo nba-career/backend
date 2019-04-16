@@ -278,9 +278,6 @@ _http method_: **[POST]**
 
 ```
     {
-        "id": 2,
-        "username": "demo",
-        "password": "$2a$14$b71jiKqNgdSuqnMVGUfDXeNqGcV7KCyPOde6mgV5wxrc0Acgd9DPa"
     }
 ```
 
