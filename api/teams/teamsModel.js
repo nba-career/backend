@@ -2,6 +2,7 @@ const db = require("../../data/dbConfig.js");
 
 module.exports = {
   get,
+  getRoster,
 };
 
 function get() {
@@ -9,4 +10,10 @@ function get() {
   return db("players")
   .distinct('team')
   .orderBy('team')
+}
+
+function getRoster(team) {
+  return db("players")
+    .where({ team })
+    .andWhere('draftYear', 1976);
 }

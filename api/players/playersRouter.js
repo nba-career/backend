@@ -23,13 +23,13 @@ router.get("/", async (req, res) => {
 router.get("/:id", (req, res) => {
   const { id } = req.params;
   Players.getById(id)
-    .then(players => {
-      if (!players) {
+    .then(player => {
+      if (!player) {
         res
           .status(404)
           .json({ message: "The player with the specified ID does not exist." });
       } else {
-        res.status(200).json(players);
+        res.status(200).json(player);
       }
     })
     .catch(error => {
