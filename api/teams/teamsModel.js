@@ -15,5 +15,5 @@ function get() {
 function getRoster(team) {
   return db("players")
     .where({ team })
-    .andWhere('draftYear', 1976);
+    .andWhere('currentPlayer', 1);
 }

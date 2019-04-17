@@ -8,8 +8,8 @@ exports.up = function(knex, Promise) {
       tbl.integer("allStar", 4);
       tbl.integer("draftYear", 4);
       tbl.integer("pick", 4);
-      tbl.string("team", 3).notNullable();
-      tbl.string("college", 255).notNullable();
+      tbl.string("team", 3);
+      tbl.string("college", 255);
       tbl.integer("years", 4);
       tbl.integer("games", 5);
       tbl.integer("minutesPlayed", 6);
@@ -27,8 +27,8 @@ exports.up = function(knex, Promise) {
       tbl.float("wsPerGame");
       tbl.float("bpm");
       tbl.float("vorp");
-      tbl.string("executive", 255).notNullable();
-      tbl.string("tenure", 255).notNullable();
+      tbl.string("executive", 255);
+      tbl.string("tenure", 255);
       tbl.integer("executiveId", 4);
       tbl.integer("execDraftExp", 4);
       tbl.integer("attendCollege", 4);
@@ -37,6 +37,17 @@ exports.up = function(knex, Promise) {
       tbl.integer("thirdYear", 4);
       tbl.integer("fourthYear", 4);
       tbl.integer("fifthYear", 4);
+
+      tbl.integer("currentPlayer", 4);
+      tbl.integer("gamesPerSeason", 4);
+      tbl.integer("minutesPerSeason", 4);
+      tbl.integer("predictions", 4);
+      tbl.integer("yearStart", 4);
+      tbl.integer("yearEnd", 4);
+      tbl.string("position", 255);
+      tbl.string("height", 255);
+      tbl.string("weight", 255);
+      tbl.string("birthDate", 255);
     })
     .createTable("users", users => {
       users.increments();
