@@ -46,7 +46,7 @@ exports.up = function(knex, Promise) {
       tbl.integer("yearEnd", 4);
       tbl.string("position", 255);
       tbl.string("height", 255);
-      tbl.string("weight", 255);
+      tbl.integer("weight", 255);
       tbl.string("birthDate", 255);
     })
     .createTable("users", users => {

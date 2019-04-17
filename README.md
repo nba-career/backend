@@ -244,6 +244,73 @@ _http method_: **[GET]**
 ]
 ```
 
+**/---------------------------------------/ TEAM ROSTER /-----------------------------------------/**
+
+### **Get Active Members of a Team**
+
+_url_: `/api/teams/:team`
+
+_http method_: **[GET]**
+
+#### Response
+
+##### 200 (ok)
+
+###### Example response
+
+```
+[
+    {
+        "id": 3855,
+        "player": "Draymond Green",
+        "allNba": 1,
+        "allStar": 1,
+        "draftYear": 2012,
+        "pick": 35,
+        "team": "GSW",
+        "college": "Michigan State University",
+        "years": 4,
+        "games": 321,
+        "minutesPlayed": 8156,
+        "points": 2790,
+        "trb": 2085,
+        "totalAssists": 1094,
+        "fgPercent": 0.44,
+        "tpPercent": 0.342,
+        "ftPercent": 0.69,
+        "minutesPerGame": 25.4,
+        "pointsPerGame": 8.7,
+        "trbPerGame": 6.5,
+        "assitsPerGame": 3.4,
+        "winShare": 24.7,
+        "wsPerGame": 0.145,
+        "bpm": 3.7,
+        "vorp": 11.8,
+        "executive": "Bob Myers",
+        "tenure": "1620 days 00:00:00.000000000",
+        "executiveId": 17,
+        "execDraftExp": 1,
+        "attendCollege": 1,
+        "firstYear": 0,
+        "secondYear": 0,
+        "thirdYear": 0,
+        "fourthYear": 1,
+        "fifthYear": 0,
+        "currentPlayer": 1,
+        "gamesPerSeason": 80,
+        "minutesPerSeason": 2039,
+        "predictions": 10,
+        "yearStart": 2013,
+        "yearEnd": 2018,
+        "position": "F",
+        "height": "6-7",
+        "weight": 230,
+        "birthDate": "4-Mar-90"
+    },
+...
+]
+```
+
 
 **/--------------------------------------------/ REGISTER /---------------------------------------/**
 
