@@ -8,7 +8,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 # import csv
 # import warnings
-import requests
+import json
 from lifelines import KaplanMeierFitter
 kmf = KaplanMeierFitter()
 # warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -50,21 +50,25 @@ def nba_life_plot(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
     plt.show()
 
 # getting JSON into python script
-inputParams = requests.get_json(force=True)
-print("req", requests.get_json(force=True))
-print("inputParams", inputParams)
+
+lines = sys.stdin.readlines()
+print("lines", lines)
+
+# inputParams = requests.get_json(force=True)
+# print("req", requests.get_json(force=True))
+# print("inputParams", inputParams)
 
 # input can include and should be in format ['G', 'F', 'C', 'F-C', 'G-F',
 # 'C-F', # 'F-G']
 
 # table_position = input()
-table_position = inputParams[positions]
+# table_position = inputParams[positions]
 
 # input can include and should be in format [1950, 1960, 1970, 1980, 1990,
 # 2000, 2010]
 
 # table_decade = input()
-table_decade = inputParams[era]
+# table_decade = inputParams[era]
 
 # Create text table based on input
 
