@@ -6,11 +6,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
-import csv
-import warnings
+# import csv
+# import warnings
 from lifelines import KaplanMeierFitter
 kmf = KaplanMeierFitter()
-warnings.simplefilter(action='ignore', category=FutureWarning)
+# warnings.simplefilter(action='ignore', category=FutureWarning)
 pd.options.display.max_rows = 9999
 
 # Cleaned data url
