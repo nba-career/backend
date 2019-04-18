@@ -3,7 +3,8 @@ const db = require("../../data/dbConfig.js");
 module.exports = {
   get,
   getById,
-  getAllNames
+  getAllNames,
+  insert,
 };
 
 function get() {
@@ -19,4 +20,12 @@ function getById(id) {
 function getAllNames() {
   return db("players")
     .select("id", "player");
+}
+
+function insert(player) {
+  return db("players")
+    .insert(player)
+    .then(ids => {
+      return getById(ids[0]);
+    });
 }

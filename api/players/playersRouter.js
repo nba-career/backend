@@ -37,4 +37,27 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// POST /api/players/
+// Add a player
+router.post("/", (req, res) => {
+  const playerInfo = req.body;
+  console.log("game information", playerInfo);
+
+  Players.insert(playerInfo)
+    .then(player => {
+      if (!playerInfo.player) {
+        res
+          .status(422)
+          .json({ message: "Please provide the name of the player." });
+      } else {
+        res.status(201).json(player);
+      }
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: "There was an error while saving the player to the database"
+      });
+    });
+});
+
 module.exports = router;
