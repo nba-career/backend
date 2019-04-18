@@ -62,13 +62,13 @@ print("lines", lines)
 # 'C-F', # 'F-G']
 
 # table_position = input()
-# table_position = inputParams[positions]
+table_position = lines[0]
 
 # input can include and should be in format [1950, 1960, 1970, 1980, 1990,
 # 2000, 2010]
 
 # table_decade = input()
-# table_decade = inputParams[era]
+table_decade = lines[1]
 
 # Create text table based on input
 
