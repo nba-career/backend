@@ -1,5 +1,5 @@
 # python library import
-!pip install pandas numpy matplotlib seaborn sklearn csv warnings lifelines
+! pip install pandas numpy matplotlib seaborn sklearn csv warnings lifelines
 
 import pandas as pd
 import numpy as np
