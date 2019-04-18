@@ -8,7 +8,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 # import csv
 # import warnings
-import json
+import sys, json
 from lifelines import KaplanMeierFitter
 kmf = KaplanMeierFitter()
 # warnings.simplefilter(action='ignore', category=FutureWarning)
