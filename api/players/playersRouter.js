@@ -1,7 +1,5 @@
 const express = require("express");
-
 const Players = require("./playersModel.js");
-
 const router = express.Router();
 
 // GET /api/players
@@ -41,7 +39,7 @@ router.get("/:id", (req, res) => {
 // Add a player
 router.post("/", (req, res) => {
   const playerInfo = req.body;
-  console.log("game information", playerInfo);
+  console.log("player information", playerInfo);
 
   Players.insert(playerInfo)
     .then(player => {
