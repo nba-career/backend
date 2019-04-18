@@ -79,7 +79,7 @@ function callSUM(req, res) {
   pySurvival.send(JSON.stringify( 
     {
       "era": [2000], 
-    "position": ["G"]
+    "positions": ["G"]
     } ));
   pySurvival.on("message", message => {
     res.send(message);

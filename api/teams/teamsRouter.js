@@ -20,20 +20,6 @@ router.get("/", async (req, res) => {
 
 // GET /api/teams/:team
 // Get current roster of a team
-// router.get("/:team", async (req, res) => {
-//   try {
-//     const teams = await Players.getRoster(req.query);
-//     res.status(200).json(teams);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({
-//       message: "Error retrieving the teams"
-//     });
-//   }
-// });
-
-// GET /api/teams/:team
-// Get current roster of a team
 router.get("/:team", (req, res) => {
   const { team } = req.params;
   Players.getRoster(team)

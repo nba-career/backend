@@ -48,15 +48,20 @@ def nba_life_plot(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
     plt.ylabel("Probability a Player is Still Active")
     plt.show()
 
+# getting JSON into python script
+inputParams = request.get_json(force=True)
+
 # input can include and should be in format ['G', 'F', 'C', 'F-C', 'G-F',
 # 'C-F', # 'F-G']
 
-table_position = input()
+# table_position = input()
+table_position = inputParams[positions]
 
 # input can include and should be in format [1950, 1960, 1970, 1980, 1990,
 # 2000, 2010]
 
-table_decade = input()
+# table_decade = input()
+table_decade = inputParams[era]
 
 # Create text table based on input
 
@@ -65,12 +70,12 @@ nba_life(df, table_position, table_decade)
 # input can include and should be in format ['G', 'F', 'C', 'F-C', 'G-F',
 # 'C-F', 'F-G']
 
-plot_position = input()
+# plot_position = input()
 
 # input can include and should be in format [1950, 1960, 1970, 1980, 1990,
 # 2000, 2010]
 
-plot_decade = input()
+# plot_decade = input()
 
 # Create png image of plot based on input
 
