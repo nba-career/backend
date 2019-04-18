@@ -76,7 +76,11 @@ function callSUM(req, res) {
   // req.body.position
 
   let pySurvival = new PythonShell("nba_survival.py", options);
-  pySurvival.send(JSON.stringify( [2000], ["G"] ));
+  pySurvival.send(JSON.stringify( 
+    {
+      "era": [2000], 
+    "position": ["G"]
+    } ));
   pySurvival.on("message", message => {
     res.send(message);
   });
