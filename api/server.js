@@ -81,7 +81,7 @@ function callSUM(req, res) {
   // req.body.position
 
   let pySurvival = new PythonShell("nba_survival.py", options);
-  pySurvival.send(JSON.stringify(options.args));
+  pySurvival.send(JSON.stringify(req.body));
   pySurvival.on("message", message => {
     res.send(message);
   });
