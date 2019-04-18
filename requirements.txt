@@ -3,6 +3,5 @@ numpy==1.16.2
 matplotlib==3.0.3
 seaborn==0.9.0
 sklearn
-csv
 warnings
 lifelines
