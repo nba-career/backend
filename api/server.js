@@ -57,4 +57,42 @@ function callSUM(req, res) {
 }
 ////////////////////////////////
 
+//////////////////////////////
+// Endpoint that makes a call to the survival python file
+// const { PythonShell } = require("python-shell");
+
+server.get("/survival", callSUM);
+
+function callSUM(req, res) {
+  let options = {
+    mode: "text",
+    pythonPath: "python",
+    pythonOptions: ["-u"],
+    scriptPath: "./python",
+
+    // args: [
+    //   parseInt(req.query.a),
+    //   parseInt(req.query.b),
+    //   parseInt(req.query.c),
+    //   parseInt(req.query.d)
+    // ]
+  };
+  // req.body.era
+  // req.body.position
+
+  let pySurvival = new PythonShell("nba_survival.py", options);
+  pySurvival.send(JSON.stringify(options.args));
+  pySurvival.on("message", message => {
+    res.send(message);
+  });
+
+  pySurvival.end(function(err) {
+    if (err) {
+      throw err;
+    }
+  });
+}
+////////////////////////////////
+
+
 module.exports = server;
