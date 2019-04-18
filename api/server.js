@@ -70,18 +70,13 @@ function callSUM(req, res) {
     pythonOptions: ["-u"],
     scriptPath: "./python",
 
-    // args: [
-    //   parseInt(req.query.a),
-    //   parseInt(req.query.b),
-    //   parseInt(req.query.c),
-    //   parseInt(req.query.d)
-    // ]
+    args: [2000, "G"]
   };
   // req.body.era
   // req.body.position
 
   let pySurvival = new PythonShell("nba_survival.py", options);
-  pySurvival.send(JSON.stringify(req.body));
+  pySurvival.send(JSON.stringify(options.args));
   pySurvival.on("message", message => {
     res.send(message);
   });
