@@ -1,5 +1,5 @@
 # python library import
-# pip install pandas numpy matplotlib seaborn sklearn csv warnings lifelines
+# pip install pandas numpy matplotlib seaborn sklearn lifelines
 
 import pandas as pd
 import numpy as np
@@ -38,56 +38,47 @@ def nba_life(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
 # function creates plot based on input values ... default is all positions
 # and years
 
-
 def nba_life_plot(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
                   decade=[1950, 1960, 1970, 1980, 1990, 2000, 2010]):
     selections1 = df[df.position.isin(positions)]
     selections2 = selections1[selections1.year_start.isin(decade)]
     kmf.fit(durations=selections2['longevity'],
             event_observed=selections2['active'])
-    kmf.plot()
+    kmf.plot(legend=False)
+    plt.xlabel("Projected time in NBA (years)")
     plt.ylabel("Probability a Player is Still Active")
-    plt.show()
+    plt.savefig(f"./images/{plot_position}{plot_decade}career.png")
+    # url =  (f"./images/{plot_position}{plot_decade}career.png")
+    # plt.show()
 
 # getting JSON into python script
 def read_in():
-    lines = sys.stdin.readlines()  
-    print("lines era", lines[era])
-    return json.loads(lines[0])
+    data= sys.stdin.readlines() 
+    return json.loads(data[0])
 
 
-lines = read_in()
-# print("lines", lines)
-
-# inputParams = requests.get_json(force=True)
-# print("req", requests.get_json(force=True))
-# print("inputParams", inputParams)
+data = read_in()
+# print("data", data)
 
 # input can include and should be in format ['G', 'F', 'C', 'F-C', 'G-F',
 # 'C-F', # 'F-G']
+table_position = data["positions"]
 
-# table_position = input()
-table_position = lines[0]
-
-# input can include and should be in format [1950, 1960, 1970, 1980, 1990,
-# 2000, 2010]
-
-# table_decade = input()
-table_decade = lines[1]
+# input can include and should be in format [1950, 1960, 1970, 1980, 1990, 2000, 2010]
+table_decade = data["era"]
 
 # Create text table based on input
 
 nba_life(df, table_position, table_decade)
 
-# input can include and should be in format ['G', 'F', 'C', 'F-C', 'G-F',
-# 'C-F', 'F-G']
+# input can include and should be in format ['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G']
 
-# plot_position = input()
+plot_position = data["positions"]
 
 # input can include and should be in format [1950, 1960, 1970, 1980, 1990,
 # 2000, 2010]
 
-# plot_decade = input()
+plot_decade = data["era"]
 
 # Create png image of plot based on input
 

@@ -66,21 +66,13 @@ server.get("/survival", callSUM);
 function callSUM(req, res) {
   let options = {
     mode: "text",
-    pythonPath: "python",
+    pythonPath: "python3",
     pythonOptions: ["-u"],
     scriptPath: "./python",
-
-    // args: [2000, "G"]
   };
-  // req.body.era
-  // req.body.position
 
   let pySurvival = new PythonShell("nba_survival.py", options);
-  pySurvival.send( 
-    {
-      "era": [2000], 
-    "positions": ["G"]
-    } );
+  pySurvival.send(JSON.stringify(req.body) );
   pySurvival.on("message", message => {
     res.send(message);
   });
