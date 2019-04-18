@@ -52,7 +52,8 @@ def nba_life_plot(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
 # getting JSON into python script
 def read_in():
     lines = sys.stdin.readlines()  
-    return json.loads(lines)
+    print("lines", lines)
+    return json.loads(lines[0])
 
 
 lines = read_in()
