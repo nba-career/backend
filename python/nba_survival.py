@@ -50,6 +50,8 @@ def nba_life_plot(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
 
 # getting JSON into python script
 inputParams = request.get_json(force=True)
+print("req", request.get_json(force=True))
+print("inputParams", inputParams)
 
 # input can include and should be in format ['G', 'F', 'C', 'F-C', 'G-F',
 # 'C-F', # 'F-G']
