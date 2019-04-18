@@ -52,13 +52,12 @@ def nba_life_plot(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
 # getting JSON into python script
 def read_in():
     lines = sys.stdin.readlines()  
-    # print("lines0", lines[0])
-    print("lines1", lines[1])
+    print("lines era", lines[era])
     return json.loads(lines[0])
 
 
 lines = read_in()
-print("lines", lines)
+# print("lines", lines)
 
 # inputParams = requests.get_json(force=True)
 # print("req", requests.get_json(force=True))
