@@ -47,8 +47,8 @@ def nba_life_plot(df=df, positions=['G', 'F', 'C', 'F-C', 'G-F', 'C-F', 'F-G'],
     kmf.plot(legend=False)
     plt.xlabel("Projected time in NBA (years)")
     plt.ylabel("Probability a Player is Still Active")
-    plt.savefig(f"./images/{plot_position}{plot_decade}career.png")
-    print(f"./images/{plot_position}{plot_decade}career.png")
+    plt.savefig(f"./api/images/{plot_position}{plot_decade}career.png")
+    print(f"{plot_position}{plot_decade}career.png")
     # plt.show()
 
 # getting JSON into python script

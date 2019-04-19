@@ -75,6 +75,7 @@ function callSUM(req, res) {
   pySurvival.send(JSON.stringify(req.body) );
   pySurvival.on("message", message => {
     res.send(message);
+    // res.sendFile(message)
   });
 
   pySurvival.end(function(err) {
@@ -84,6 +85,28 @@ function callSUM(req, res) {
   });
 }
 ////////////////////////////////
+
+server.get('/file/:name', function (req, res, next) {
+
+  var options = {
+    root: __dirname + '/images/',
+    dotfiles: 'deny',
+    headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+    }
+  };
+
+  var fileName = req.params.name;
+  res.sendFile(fileName, options, function (err) {
+    if (err) {
+      next(err);
+    } else {
+      console.log('Sent:', fileName);
+    }
+  });
+
+});
 
 
 module.exports = server;
