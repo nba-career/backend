@@ -56,7 +56,7 @@ const { PythonShell } = require("python-shell");
 // Endpoint that makes a call to the survival python file
 // const { PythonShell } = require("python-shell");
 
-server.get("/survival", callSUM);
+server.post("/survival", callSUM);
 
 function callSUM(req, res) {
   let options = {
